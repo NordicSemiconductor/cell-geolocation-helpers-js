@@ -25,14 +25,14 @@
   "author": "Nordic Semiconductor ASA | nordicsemi.no",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "@bifravst/code-style": "^4.1.1",
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-angular": "^8.2.0",
-    "@types/jest": "^24.0.18",
-    "@types/node": "^13.1.1",
-    "husky": "^4.0.10",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.1.0"
+    "@bifravst/code-style": "^6.0.2",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-angular": "^8.3.4",
+    "@types/jest": "^25.1.0",
+    "@types/node": "^13.5.0",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.0.0"
   },
   "husky": {
     "hooks": {
