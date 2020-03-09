@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "webpack-dev-server --config-name development --open",
+    "build": "npx webpack --config-name production"
   },
   "repository": {
     "type": "git",
@@ -29,11 +31,22 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
     "@types/jest": "^25.1.1",
+    "@types/leaflet": "^1.5.10",
     "@types/node": "^13.7.0",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-leaflet": "^2.5.1",
+    "@types/styled-components": "^5.0.1",
     "husky": "^4.2.1",
     "jest": "^25.1.0",
+    "source-map-loader": "^0.2.4",
+    "styled-components": "^5.0.1",
     "ts-jest": "^25.1.0",
-    "typescript": "^3.7.5"
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "husky": {
     "hooks": {
@@ -57,7 +70,9 @@
     "npm": ">=6.0.0"
   },
   "release": {
-    "branches": ["saga"],
+    "branches": [
+      "saga"
+    ],
     "remoteTags": true
   },
   "publishConfig": {
@@ -87,5 +102,8 @@
         "diagnostics": true
       }
     }
+  },
+  "dependencies": {
+    "fp-ts": "^2.5.3"
   }
 }
