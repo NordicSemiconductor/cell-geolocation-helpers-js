@@ -44,5 +44,5 @@ jobs:
           git init
           git add -A
           git commit -m 'Update website'
-          git remote set-url origin https://github.com/${GITHUB_REPOSITORY}.git
+          git remote add origin https://github.com/${GITHUB_REPOSITORY}.git
           git push origin HEAD:gh-pages
