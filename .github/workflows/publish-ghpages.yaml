@@ -45,4 +45,4 @@ jobs:
           git add -A
           git commit -m 'Update website'
           git remote add origin https://github.com/${GITHUB_REPOSITORY}.git
-          git push origin HEAD:gh-pages
+          git push -f origin HEAD:gh-pages
