@@ -27,6 +27,8 @@ used to unify the way these ids are generated between frontend and backend.
 
 ![Demo of cellFromGeolocations results](./map.gif)
 
+*(Demo and above GIF are using 5km min cell radius and P=0.9.)*
+
 Calculates a cell geo location based on a list of geo locations:
 
 - the center is the average of all given locations (within a configurable
