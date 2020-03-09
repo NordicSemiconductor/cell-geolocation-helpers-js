@@ -7,6 +7,12 @@ const sum = (total: number, v: number) => total + v
 export type Point = { lat: number; lng: number }
 export type CellGeoLocation = Point & { accuracy: number }
 
+/**
+ * Calculates a cell geo location based on a list of geo locations:
+ *
+ * - the center is the average of all given locations (within a configurable percentile)
+ * - the diameter returned is a circle that includes all given locations (within a configurable percentile), but at least `minCellDiameterInMeters`.
+ */
 export const cellFromGeolocations = ({
 	minCellDiameterInMeters,
 	percentile,
@@ -22,7 +28,7 @@ export const cellFromGeolocations = ({
 			accuracy: minCellDiameterInMeters,
 		})
 
-	// Location is average of P=.9 of all positions
+	// Location is average of the given percentile of all positions
 	const lats = locations.map(({ lat }) => lat + 90).sort(byNumericValue)
 	const lngs = locations.map(({ lng }) => lng + 180).sort(byNumericValue)
 	const entriesToConsider = Math.round(locations.length * percentile)
@@ -38,7 +44,7 @@ export const cellFromGeolocations = ({
 			180,
 	}
 
-	// Calculate largest distance, but filter out extremes P=.9
+	// Calculate largest distance, but filter out the given percentile
 	const distances = locations
 		.map(d => earthTunnelDistance(center, d))
 		.sort(byNumericValue)

@@ -17,3 +17,20 @@ Helper functions for the cell geolocation feature.
 
     echo "@bifravst:registry=https://npm.pkg.github.com" >> .npmrc
     npm i --save-dev @bifravst/cell-geolocation-helpers
+
+## `cellId`
+
+Simple formatter to create identifier strings from cell information. This is
+used to unify the way these ids are generated between frontend and backend.
+
+## `cellFromGeolocations`
+
+Calculates a cell geo location based on a list of geo locations:
+
+- the center is the average of all given locations (within a configurable
+  percentile)
+- the diameter returned is a circle that includes all given locations (within a
+  configurable percentile), but at least `minCellDiameterInMeters`.
+
+Check out the live demo on
+<https://bifravst.github.io/cell-geolocation-helpers>.
