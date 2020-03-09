@@ -25,6 +25,8 @@ used to unify the way these ids are generated between frontend and backend.
 
 ## `cellFromGeolocations`
 
+![Demo of cellFromGeolocations results](./map.gif)
+
 Calculates a cell geo location based on a list of geo locations:
 
 - the center is the average of all given locations (within a configurable
