@@ -36,13 +36,13 @@ jobs:
           npm run build
       - name: Publish build
         run: |
+          echo "machine github.com login accesskey password ${GITHUB_TOKEN}" > ~/.netrc
+          git config user.email "actions@example.com"
+          git config user.name "GitHub Actions"
           cp dev/index.html dist
           cd dist
           git init
           git add -A
           git commit -m 'Update website'
-          echo "machine github.com login accesskey password ${GITHUB_TOKEN}" > ~/.netrc
-          git config user.email "actions@example.com"
-          git config user.name "GitHub Actions"
           git remote set-url origin https://github.com/${GITHUB_REPOSITORY}.git
           git push origin HEAD:gh-pages
