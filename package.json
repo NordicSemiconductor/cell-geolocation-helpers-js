@@ -30,7 +30,6 @@
     "@bifravst/code-style": "^6.0.5",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
-    "@turf/turf": "^5.1.6",
     "@types/jest": "^25.1.4",
     "@types/leaflet": "^1.5.10",
     "@types/node": "^13.9.0",
@@ -104,6 +103,7 @@
     }
   },
   "dependencies": {
+    "@turf/turf": "^5.1.6",
     "fp-ts": "^2.5.3"
   }
 }
