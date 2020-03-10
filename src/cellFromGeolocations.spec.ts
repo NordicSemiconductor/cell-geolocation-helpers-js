@@ -69,11 +69,11 @@ describe('cellFromGeolocations', () => {
 					lng: 91,
 				},
 			]) as Some<CellGeoLocation>
-			expect(l.value.accuracy).toEqual(106336.20834628474)
+			expect(l.value.accuracy).toEqual(55597.54011676645)
 		})
 	})
 
-	it.only('considers only a configurable percentile of geo locations', () => {
+	it('considers only a configurable percentile of geo locations', () => {
 		const c50 = cellFromGeolocations({
 			minCellDiameterInMeters: 5000,
 			percentile: 0.5,

@@ -1,5 +1,8 @@
 import { Option, none, some } from 'fp-ts/lib/Option'
-import { earthTunnelDistance } from './tunnelDistance'
+import { distance } from '@turf/turf'
+
+const calculateDistance = (from: Point, to: Point): number =>
+	distance([from.lat, from.lng], [to.lat, to.lng], { units: 'meters' })
 
 const byNumericValue = (a: number, b: number) => a - b
 const sum = (total: number, v: number) => total + v
@@ -46,13 +49,13 @@ export const cellFromGeolocations = ({
 
 	// Calculate largest distance, but filter out the given percentile
 	const distances = locations
-		.map(d => earthTunnelDistance(center, d))
+		.map(d => calculateDistance(center, d))
 		.sort(byNumericValue)
 	const significantLargestEntry = Math.floor(locations.length * percentile)
 
 	const accuracy = Math.max(
 		minCellDiameterInMeters,
-		distances[significantLargestEntry] * 2,
+		distances[significantLargestEntry],
 	)
 
 	return some({
