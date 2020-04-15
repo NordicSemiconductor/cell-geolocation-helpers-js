@@ -75,8 +75,7 @@
     "remoteTags": true
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "files": [
     "package-lock.json",

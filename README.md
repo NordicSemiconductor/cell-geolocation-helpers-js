@@ -1,6 +1,5 @@
-# Cell Geolocation Helpers
+# Cell Geolocation Helpers [![npm version](https://img.shields.io/npm/v/@bifravst/cell-geolocation-helpers.svg)](https://www.npmjs.com/package/@bifravst/cell-geolocation-helpers)
 
-[![GitHub Package Registry version](https://img.shields.io/github/release/bifravst/cell-geolocation-helpers.svg?label=GPR&logo=github)](https://github.com/bifravst/cell-geolocation-helpers/packages/46253)
 [![GitHub Actions](https://github.com/bifravst/cell-geolocation-helpers/workflows/Test%20and%20Release/badge.svg)](https://github.com/bifravst/cell-geolocation-helpers/actions)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
@@ -11,11 +10,6 @@ Helper functions for the cell geolocation feature.
 
 ## Installation
 
-> Note: This package is hosted on the GitHub package registry and
-> [npm needs to be configured](https://help.github.com/en/articles/configuring-npm-for-use-with-github-package-registry#installing-a-package)
-> in order to use it.
-
-    echo "@bifravst:registry=https://npm.pkg.github.com" >> .npmrc
     npm i --save-dev @bifravst/cell-geolocation-helpers
 
 ## `cellId`
@@ -27,7 +21,7 @@ used to unify the way these ids are generated between frontend and backend.
 
 ![Demo of cellFromGeolocations results](./map.gif)
 
-*(Demo and above GIF are using 5km min cell radius and P=0.9.)*
+_(Demo and above GIF are using 5km min cell radius and P=0.9.)_
 
 Calculates a cell geo location based on a list of geo locations:
 
