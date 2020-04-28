@@ -103,6 +103,6 @@
   },
   "dependencies": {
     "@turf/turf": "^5.1.6",
-    "fp-ts": "^2.5.3"
+    "fp-ts": "^2.5.4"
   }
 }
