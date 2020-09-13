@@ -28,8 +28,8 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@bifravst/code-style": "8.0.73",
-    "@commitlint/cli": "9.1.2",
-    "@commitlint/config-angular": "9.1.2",
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-angular": "11.0.0",
     "@types/jest": "26.0.13",
     "@types/leaflet": "1.5.17",
     "@types/node": "13.13.19",
