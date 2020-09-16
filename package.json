@@ -30,7 +30,7 @@
     "@bifravst/code-style": "8.0.89",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-angular": "11.0.0",
-    "@types/jest": "26.0.13",
+    "@types/jest": "26.0.14",
     "@types/leaflet": "1.5.17",
     "@types/node": "13.13.20",
     "@types/react": "16.9.49",
