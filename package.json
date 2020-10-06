@@ -32,7 +32,7 @@
     "@commitlint/config-angular": "11.0.0",
     "@types/jest": "26.0.14",
     "@types/leaflet": "1.5.17",
-    "@types/node": "13.13.21",
+    "@types/node": "13.13.22",
     "@types/react": "16.9.51",
     "@types/react-dom": "16.9.8",
     "@types/react-leaflet": "2.5.2",
