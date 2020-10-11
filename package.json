@@ -38,7 +38,7 @@
     "@types/react-leaflet": "2.5.2",
     "@types/styled-components": "5.1.4",
     "husky": "4.3.0",
-    "jest": "26.5.2",
+    "jest": "26.5.3",
     "nmea-simple": "3.2.0",
     "source-map-loader": "1.1.1",
     "styled-components": "5.2.0",
