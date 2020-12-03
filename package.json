@@ -33,7 +33,7 @@
     "@commitlint/config-angular": "11.0.0",
     "@prefresh/snowpack": "2.1.0",
     "@snowpack/plugin-babel": "2.1.5",
-    "@snowpack/plugin-react-refresh": "2.3.7",
+    "@snowpack/plugin-react-refresh": "2.3.8",
     "@snowpack/plugin-sass": "1.1.2",
     "@snowpack/plugin-typescript": "1.1.0",
     "@types/jest": "26.0.16",
