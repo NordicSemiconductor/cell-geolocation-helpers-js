@@ -16,4 +16,9 @@ module.exports = {
 			SNOWPACK_PUBLIC_VERSION: true,
 		},
 	},
+	buildOptions: {
+		...(process.env.BASE_URL !== undefined && {
+			baseUrl: process.env.BASE_URL,
+		}),
+	},
 }

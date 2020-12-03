@@ -8,6 +8,7 @@ on:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  BASE_URL: https://bifravst.github.io/cell-geolocation-helpers/
 
 jobs:
   publish:
@@ -29,14 +30,14 @@ jobs:
         run: npm ci --no-audit
       - name: Make production build
         run: |
+          export BASE_URL=`node -e 'process.stdout.write(\`https://${process.argv[process.argv.length - 1].trim().split("/").join(".github.io/")}/\`)' ${GITHUB_REPOSITORY}`
           npm run build
       - name: Publish build
         run: |
           echo "machine github.com login accesskey password ${GITHUB_TOKEN}" > ~/.netrc
           git config --global user.email "actions@example.com"
           git config --global user.name "GitHub Actions"
-          cp dev/index.html dist
-          cd dist
+          cd build
           git init
           git add -A
           git commit -m 'Update website'
