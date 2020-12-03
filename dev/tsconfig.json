@@ -1,6 +1,6 @@
 {
   "extends": "@bifravst/code-style/tsconfig.json",
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "types"],
   "compilerOptions": {
     "outDir": "dist/",
     "jsx": "react",

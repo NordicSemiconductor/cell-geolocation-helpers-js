@@ -1,8 +1,17 @@
-import React, { createRef, useState } from 'react'
-import { Map as LeafletMap, TileLayer, Marker, Circle } from 'react-leaflet'
+import React, { useState } from 'react'
+import { Map as LeafletMap, LeafletMouseEvent } from 'leaflet'
+import {
+	MapContainer,
+	TileLayer,
+	Marker,
+	Circle,
+	useMapEvents,
+} from 'react-leaflet'
 import styled from 'styled-components'
 import { cellFromGeolocations } from '../../src/cellFromGeolocations'
 import { isSome } from 'fp-ts/lib/Option'
+import Leaflet from 'leaflet'
+import marker from 'leaflet/dist/images/marker-icon.png'
 
 const Button = styled.button`
 	position: absolute;
@@ -23,21 +32,29 @@ const calculateCell = cellFromGeolocations({
 	percentile: 0.9,
 })
 
+const EventHandler = ({
+	onClick,
+}: {
+	onClick: (args: { event: LeafletMouseEvent; map: LeafletMap }) => void
+}) => {
+	const map = useMapEvents({
+		click: (event) => onClick({ event, map }),
+	})
+	return null
+}
+
 export const Map = () => {
-	const mapRef = createRef<LeafletMap>()
 	const [locations, setLocations] = useState<{ lat: number; lng: number }[]>([])
 	const cell = calculateCell(locations)
 
 	return (
 		<>
-			<LeafletMap
-				center={[63.4210966, 10.4378928]}
-				zoom={13}
-				ref={mapRef}
-				onclick={e => {
-					setLocations(loc => [...loc, e.latlng])
-				}}
-			>
+			<MapContainer center={[63.4210966, 10.4378928]} zoom={13}>
+				<EventHandler
+					onClick={({ event }) => {
+						setLocations((loc) => [...loc, event.latlng])
+					}}
+				/>
 				<TileLayer
 					attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -46,15 +63,17 @@ export const Map = () => {
 					<Marker
 						key={i}
 						position={location}
-						onclick={() => {
-							setLocations(loc => [...loc.slice(0, i), ...loc.slice(i + 1)])
-						}}
+						icon={Leaflet.icon({
+							iconUrl: marker,
+							iconSize: [25, 41],
+							iconAnchor: [12.5, 41],
+						})}
 					/>
 				))}
 				{isSome(cell) && (
 					<Circle center={cell.value} radius={cell.value.accuracy / 2} />
 				)}
-			</LeafletMap>
+			</MapContainer>
 			<Button onClick={() => setLocations([])}>reset</Button>
 		</>
 	)

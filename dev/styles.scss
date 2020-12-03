@@ -1,0 +1,13 @@
+@import "normalize.css/normalize.css";
+
+html,
+body {
+  height: 100%;
+}
+#map,
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+@import "leaflet/dist/leaflet.css";
