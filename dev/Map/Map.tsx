@@ -64,7 +64,9 @@ export const Map = () => {
 						key={i}
 						position={location}
 						icon={Leaflet.icon({
-							iconUrl: marker,
+							iconUrl: `${
+								import.meta.env.SNOWPACK_PUBLIC_BASE_DIR
+							}${marker.substr(1)}`,
 							iconSize: [25, 41],
 							iconAnchor: [12.5, 41],
 						})}
