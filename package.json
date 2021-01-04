@@ -28,7 +28,7 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@bifravst/code-style": "8.0.134",
-    "@bifravst/eslint-config-typescript": "5.0.85",
+    "@bifravst/eslint-config-typescript": "5.0.86",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-angular": "11.0.0",
     "@prefresh/snowpack": "3.0.0",
