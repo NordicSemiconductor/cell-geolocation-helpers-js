@@ -115,7 +115,7 @@
     }
   },
   "dependencies": {
-    "@turf/turf": "5.1.6",
+    "@turf/turf": "6.2.0",
     "fp-ts": "2.9.3"
   }
 }
