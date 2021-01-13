@@ -14,7 +14,7 @@ module.exports = {
 		'@snowpack/plugin-typescript',
 		'@snowpack/plugin-sass',
 	],
-	installOptions: {
+	packageOptions: {
 		installTypes: true,
 		env: {
 			SNOWPACK_PUBLIC_VERSION: true,
