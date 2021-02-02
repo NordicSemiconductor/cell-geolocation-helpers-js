@@ -34,4 +34,4 @@ Calculates a cell geo location based on a list of geo locations:
   configurable percentile), but at least `minCellDiameterInMeters`.
 
 Check out the live demo on
-<https://nordicsemiconductor.github.io/asset-tracker-cloud-docs/cell-geolocation-helpers>.
+<https://nordicsemiconductor.github.io/cell-geolocation-helpers-js>.

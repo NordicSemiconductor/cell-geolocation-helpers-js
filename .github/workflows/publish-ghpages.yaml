@@ -8,7 +8,7 @@ on:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  BASE_URL: https://nordicsemiconductor.github.io/asset-tracker-cloud-docs/cell-geolocation-helpers/
+  BASE_URL: https://nordicsemiconductor.github.io/cell-geolocation-helpers-js/
 
 jobs:
   publish:
