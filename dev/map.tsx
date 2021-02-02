@@ -6,7 +6,7 @@ console.log(
 	'%c Bifravst Cell Geolocation Helpers ',
 	'background-color: #00a9ce; color: #ffffff; padding: 0.25rem;',
 	'Source code:',
-	'https://github.com/bifravst/cell-geolocation-helpers',
+	'https://github.com/NordicSemiconductor/cell-geolocation-helpers-js',
 )
 
 ReactDOM.render(<Map />, document.querySelector('#map'))
