@@ -29,7 +29,7 @@
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-angular": "11.0.0",
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "9.0.2",
-    "@nordicsemiconductor/eslint-config-asset-tracker-cloud-typescript": "^7.0.0",
+    "@nordicsemiconductor/eslint-config-asset-tracker-cloud-typescript": "7.0.0",
     "@prefresh/snowpack": "3.1.0",
     "@snowpack/plugin-babel": "2.1.6",
     "@snowpack/plugin-react-refresh": "2.4.0",
