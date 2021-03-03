@@ -76,7 +76,7 @@
   },
   "engines": {
     "node": ">=14.0.0",
-    "npm": ">=6.0.0"
+    "npm": ">=7.0.0"
   },
   "release": {
     "branches": [
@@ -112,7 +112,7 @@
     }
   },
   "dependencies": {
-    "@turf/turf": "6.3.0",
+    "@turf/distance": "6.3.0",
     "fp-ts": "2.9.5"
   }
 }

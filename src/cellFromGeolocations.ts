@@ -1,5 +1,5 @@
 import { Option, none, some } from 'fp-ts/lib/Option'
-import { distance } from '@turf/turf'
+import distance from '@turf/distance'
 
 const calculateDistance = (from: Point, to: Point): number =>
 	distance([from.lat, from.lng], [to.lat, to.lng], { units: 'meters' })
@@ -49,7 +49,7 @@ export const cellFromGeolocations = ({
 
 	// Calculate largest distance, but filter out the given percentile
 	const distances = locations
-		.map(d => calculateDistance(center, d))
+		.map((d) => calculateDistance(center, d))
 		.sort(byNumericValue)
 	const significantLargestEntry = Math.floor(locations.length * percentile)
 
