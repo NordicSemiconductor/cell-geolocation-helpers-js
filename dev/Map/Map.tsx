@@ -11,7 +11,6 @@ import styled from 'styled-components'
 import { cellFromGeolocations } from '../../src/cellFromGeolocations'
 import { isSome } from 'fp-ts/lib/Option'
 import Leaflet from 'leaflet'
-import marker from 'leaflet/dist/images/marker-icon.png'
 
 const Button = styled.button`
 	position: absolute;
@@ -64,9 +63,8 @@ export const Map = () => {
 						key={i}
 						position={location}
 						icon={Leaflet.icon({
-							iconUrl: `${
-								import.meta.env.SNOWPACK_PUBLIC_BASE_DIR
-							}${marker.substr(1)}`,
+							iconUrl:
+								'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
 							iconSize: [25, 41],
 							iconAnchor: [12.5, 41],
 						})}
