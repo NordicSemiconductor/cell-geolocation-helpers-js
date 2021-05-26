@@ -95,7 +95,7 @@
   ],
   "jest": {
     "preset": "ts-jest",
-    "testRegex": ".+.spec.ts$"
+    "testRegex": ".+\\.spec\\.ts$"
   },
   "dependencies": {
     "@turf/distance": "6.3.0",
