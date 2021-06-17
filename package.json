@@ -98,7 +98,7 @@
     "testRegex": ".+\\.spec\\.ts$"
   },
   "dependencies": {
-    "@turf/distance": "6.3.0",
+    "@turf/distance": "6.4.0",
     "fp-ts": "2.10.5"
   }
 }
