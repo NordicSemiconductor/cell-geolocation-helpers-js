@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "@turf/distance": "./@turf/distance.js",
+    "fp-ts/lib/Option": "./fp-ts/lib/Option.js",
+    "leaflet": "./leaflet.js",
+    "leaflet/dist/leaflet.css": "./leaflet/dist/leaflet.css",
+    "normalize.css/normalize.css": "./normalize.css/normalize.css",
+    "react": "./react.js",
+    "react-dom": "./react-dom.js",
+    "react-leaflet": "./react-leaflet.js",
+    "styled-components": "./styled-components.js"
+  }
+}
