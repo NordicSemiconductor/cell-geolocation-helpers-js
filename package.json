@@ -48,7 +48,7 @@
     "@types/styled-components": "5.1.15",
     "eslint": "8.0.1",
     "husky": "7.0.2",
-    "jest": "27.2.5",
+    "jest": "27.3.0",
     "leaflet": "1.7.1",
     "lint-staged": "11.2.3",
     "nmea-simple": "3.2.0",
