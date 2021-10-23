@@ -48,7 +48,7 @@
     "husky": "7.0.4",
     "jest": "27.3.1",
     "leaflet": "1.7.1",
-    "lint-staged": "11.2.3",
+    "lint-staged": "11.2.4",
     "nmea-simple": "3.2.0",
     "normalize.css": "8.0.1",
     "pinst": "2.1.6",
