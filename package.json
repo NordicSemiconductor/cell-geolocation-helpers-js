@@ -43,7 +43,7 @@
     "@types/react-leaflet": "2.8.2",
     "@types/snowpack-env": "2.3.4",
     "@types/styled-components": "5.1.19",
-    "jest": "27.4.6",
+    "jest": "27.4.7",
     "leaflet": "1.7.1",
     "nmea-simple": "3.2.0",
     "normalize.css": "8.0.1",
