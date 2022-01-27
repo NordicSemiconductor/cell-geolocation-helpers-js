@@ -12,7 +12,7 @@ Helper functions for the cell geolocation feature.
 
 ## Installation
 
-    npm i --save-dev @nordicsemiconductor/cell-geolocation-helpers
+    npm i --save-dev --save-exact @nordicsemiconductor/cell-geolocation-helpers
 
 ## `cellId`
 
