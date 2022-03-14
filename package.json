@@ -88,6 +88,6 @@
   },
   "dependencies": {
     "@turf/distance": "6.5.0",
-    "fp-ts": "2.11.8"
+    "fp-ts": "2.11.9"
   }
 }
