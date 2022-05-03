@@ -1,12 +1,5 @@
-import Leaflet, { LeafletMouseEvent, Map as LeafletMap } from 'leaflet'
-import React, { useState } from 'react'
-import {
-	Circle,
-	MapContainer,
-	Marker,
-	TileLayer,
-	useMapEvents,
-} from 'react-leaflet'
+import L from 'leaflet'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { cellFromGeolocations } from '../../src/cellFromGeolocations'
 
@@ -29,47 +22,43 @@ const calculateCell = cellFromGeolocations({
 	percentile: 0.9,
 })
 
-const EventHandler = ({
-	onClick,
-}: {
-	onClick: (args: { event: LeafletMouseEvent; map: LeafletMap }) => void
-}) => {
-	const map = useMapEvents({
-		click: (event) => onClick({ event, map }),
-	})
-	return null
-}
-
 export const Map = () => {
 	const [locations, setLocations] = useState<{ lat: number; lng: number }[]>([])
 	const cell = calculateCell(locations)
 
+	useEffect(() => {
+		const map = L.map('map').setView([63.4210966, 10.4378928], 13)
+		// add the OpenStreetMap tiles
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution:
+				'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+		}).addTo(map)
+		if (cell !== undefined)
+			L.circle([cell.lat, cell.lng], { radius: cell?.accuracy / 2 }).addTo(map)
+		locations.forEach((location, i) => {
+			L.marker([location.lat, location.lng], {
+				icon: L.icon({
+					iconUrl:
+						'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+					iconSize: [25, 41],
+					iconAnchor: [12.5, 41],
+				}),
+			}).addTo(map)
+		})
+
+		map.on('click', (event: { latlng: L.LatLng }) => {
+			setLocations((loc) => [...loc, event.latlng])
+		})
+		return () => {
+			map.off()
+			map.remove()
+		}
+	}, [cell, locations])
+
 	return (
 		<>
-			<MapContainer center={[63.4210966, 10.4378928]} zoom={13}>
-				<EventHandler
-					onClick={({ event }) => {
-						setLocations((loc) => [...loc, event.latlng])
-					}}
-				/>
-				<TileLayer
-					attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-				/>
-				{locations.map((location, i) => (
-					<Marker
-						key={i}
-						position={location}
-						icon={Leaflet.icon({
-							iconUrl:
-								'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-							iconSize: [25, 41],
-							iconAnchor: [12.5, 41],
-						})}
-					/>
-				))}
-				{cell && <Circle center={cell} radius={cell?.accuracy / 2} />}
-			</MapContainer>
+			<div id="map" style={{ width: '100%', height: '500px' }} />
 			<Button onClick={() => setLocations([])}>reset</Button>
 		</>
 	)
