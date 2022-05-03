@@ -1,5 +1,4 @@
-import { isNone, isSome, Some } from 'fp-ts/lib/Option'
-import { cellFromGeolocations, CellGeoLocation } from './cellFromGeolocations'
+import { cellFromGeolocations } from './cellFromGeolocations'
 
 const c = cellFromGeolocations({
 	minCellDiameterInMeters: 5000,
@@ -7,7 +6,7 @@ const c = cellFromGeolocations({
 })
 describe('cellFromGeolocations', () => {
 	it('returns none if no geo locations are given', () =>
-		expect(isNone(c([]))).toBeTruthy())
+		expect(c([])).toBeUndefined())
 
 	it('returns the cell location with the typical cell size as accuracy, if only one geo location is given', () => {
 		const l = c([
@@ -15,11 +14,10 @@ describe('cellFromGeolocations', () => {
 				lat: 45,
 				lng: 90,
 			},
-		]) as Some<CellGeoLocation>
-		expect(isSome(l)).toBeTruthy()
-		expect(l.value.lat).toEqual(45)
-		expect(l.value.lng).toEqual(90)
-		expect(l.value.accuracy).toEqual(5000)
+		])
+		expect(l?.lat).toEqual(45)
+		expect(l?.lng).toEqual(90)
+		expect(l?.accuracy).toEqual(5000)
 	})
 
 	it('returns the location based on averages if more than one geo location', () => {
@@ -32,10 +30,9 @@ describe('cellFromGeolocations', () => {
 				lat: 42,
 				lng: 135,
 			},
-		]) as Some<CellGeoLocation>
-		expect(isSome(l)).toBeTruthy()
-		expect(l.value.lat).toEqual((17 + 42) / 2)
-		expect(l.value.lng).toEqual((90 + 135) / 2)
+		])
+		expect(l?.lat).toEqual((17 + 42) / 2)
+		expect(l?.lng).toEqual((90 + 135) / 2)
 	})
 
 	describe('it calculates the cell size based the reported cell geolocations', () => {
@@ -52,8 +49,8 @@ describe('cellFromGeolocations', () => {
 					lat: 17,
 					lng: 90.00001,
 				},
-			]) as Some<CellGeoLocation>
-			expect(l.value.accuracy).toEqual(5000)
+			])
+			expect(l?.accuracy).toEqual(5000)
 		})
 		test('diameter will be expanded to include the given geo locations', () => {
 			const l = cellFromGeolocations({
@@ -68,8 +65,8 @@ describe('cellFromGeolocations', () => {
 					lat: 17,
 					lng: 91,
 				},
-			]) as Some<CellGeoLocation>
-			expect(l.value.accuracy).toEqual(55597.54011676645)
+			])
+			expect(l?.accuracy).toEqual(55597.54011676645)
 		})
 	})
 
@@ -91,9 +88,8 @@ describe('cellFromGeolocations', () => {
 				lat: 95,
 				lng: 218,
 			},
-		]) as Some<CellGeoLocation>
-		expect(isSome(l)).toBeTruthy()
-		expect(l.value.lat).toEqual((17 + 42) / 2)
-		expect(l.value.lng).toEqual((90 + 135) / 2)
+		])
+		expect(l?.lat).toEqual((17 + 42) / 2)
+		expect(l?.lng).toEqual((90 + 135) / 2)
 	})
 })

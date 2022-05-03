@@ -1,16 +1,14 @@
+import Leaflet, { LeafletMouseEvent, Map as LeafletMap } from 'leaflet'
 import React, { useState } from 'react'
-import { Map as LeafletMap, LeafletMouseEvent } from 'leaflet'
 import {
-	MapContainer,
-	TileLayer,
-	Marker,
 	Circle,
+	MapContainer,
+	Marker,
+	TileLayer,
 	useMapEvents,
 } from 'react-leaflet'
 import styled from 'styled-components'
 import { cellFromGeolocations } from '../../src/cellFromGeolocations'
-import { isSome } from 'fp-ts/lib/Option'
-import Leaflet from 'leaflet'
 
 const Button = styled.button`
 	position: absolute;
@@ -70,9 +68,7 @@ export const Map = () => {
 						})}
 					/>
 				))}
-				{isSome(cell) && (
-					<Circle center={cell.value} radius={cell.value.accuracy / 2} />
-				)}
+				{cell && <Circle center={cell} radius={cell?.accuracy / 2} />}
 			</MapContainer>
 			<Button onClick={() => setLocations([])}>reset</Button>
 		</>
