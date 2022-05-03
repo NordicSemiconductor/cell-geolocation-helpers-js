@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import * as React from 'react'
+import { createRoot } from 'react-dom/client'
 import { Map } from './Map/Map'
 
 console.log(
@@ -9,4 +9,6 @@ console.log(
 	'https://github.com/NordicSemiconductor/cell-geolocation-helpers-js',
 )
 
-ReactDOM.render(<Map />, document.querySelector('#map'))
+const container = document.getElementById('map') as HTMLElement
+const root = createRoot(container)
+root.render(<Map />)

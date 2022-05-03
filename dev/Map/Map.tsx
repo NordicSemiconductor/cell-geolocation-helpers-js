@@ -1,7 +1,7 @@
-import L from 'leaflet'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { cellFromGeolocations } from '../../src/cellFromGeolocations'
+import { BaseMap } from './BaseMap'
 
 const Button = styled.button`
 	position: absolute;
@@ -25,6 +25,8 @@ const calculateCell = cellFromGeolocations({
 export const Map = () => {
 	const [locations, setLocations] = useState<{ lat: number; lng: number }[]>([])
 	const cell = calculateCell(locations)
+	/*
+	
 
 	useEffect(() => {
 		const map = L.map('map').setView([63.4210966, 10.4378928], 13)
@@ -56,10 +58,18 @@ export const Map = () => {
 		}
 	}, [cell, locations])
 
+	*/
+
 	return (
 		<>
-			<div id="map" style={{ width: '100%', height: '500px' }} />
-			<Button onClick={() => setLocations([])}>reset</Button>
+			<BaseMap>
+				{(map) => {
+					return null
+				}}
+			</BaseMap>
+			<Button type="button" onClick={() => setLocations([])}>
+				reset
+			</Button>
 		</>
 	)
 }
