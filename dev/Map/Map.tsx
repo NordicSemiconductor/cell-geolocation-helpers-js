@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import L from 'leaflet'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { cellFromGeolocations } from '../../src/cellFromGeolocations'
-import { BaseMap } from './BaseMap'
 
 const Button = styled.button`
 	position: absolute;
@@ -22,51 +22,69 @@ const calculateCell = cellFromGeolocations({
 	percentile: 0.9,
 })
 
+const marker = L.icon({
+	iconUrl:
+		'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+	iconSize: [25, 41],
+	iconAnchor: [12.5, 41],
+})
+
 export const Map = () => {
 	const [locations, setLocations] = useState<{ lat: number; lng: number }[]>([])
 	const cell = calculateCell(locations)
-	/*
-	
+	const mapDiv = useRef<HTMLDivElement>(null)
+	const mapRef = useRef<L.Map>()
+	const cellLayerRef = useRef<L.LayerGroup>()
+	const markerLayerRef = useRef<L.LayerGroup>()
 
+	// Init map
 	useEffect(() => {
-		const map = L.map('map').setView([63.4210966, 10.4378928], 13)
+		if (mapDiv.current === null) return
+		mapRef.current = L.map(mapDiv.current).setView([63.4210966, 10.4378928], 13)
 		// add the OpenStreetMap tiles
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 19,
 			attribution:
 				'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
-		}).addTo(map)
-		if (cell !== undefined)
-			L.circle([cell.lat, cell.lng], { radius: cell?.accuracy / 2 }).addTo(map)
-		locations.forEach((location, i) => {
-			L.marker([location.lat, location.lng], {
-				icon: L.icon({
-					iconUrl:
-						'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-					iconSize: [25, 41],
-					iconAnchor: [12.5, 41],
-				}),
-			}).addTo(map)
-		})
+		}).addTo(mapRef.current)
 
-		map.on('click', (event: { latlng: L.LatLng }) => {
+		mapRef.current.on('click', (event: { latlng: L.LatLng }) => {
 			setLocations((loc) => [...loc, event.latlng])
 		})
-		return () => {
-			map.off()
-			map.remove()
-		}
-	}, [cell, locations])
 
-	*/
+		// Init layers
+		cellLayerRef.current = L.layerGroup().addTo(mapRef.current)
+		markerLayerRef.current = L.layerGroup().addTo(mapRef.current)
+
+		return () => {
+			mapRef.current?.off()
+			mapRef.current?.remove()
+		}
+	}, [mapDiv])
+
+	// Draw cell layer
+	useEffect(() => {
+		cellLayerRef.current?.clearLayers()
+		if (cell === undefined || cellLayerRef.current === undefined) return
+		L.circle([cell.lat, cell.lng], { radius: cell?.accuracy / 2 }).addTo(
+			cellLayerRef.current,
+		)
+	}, [cell])
+
+	// Draw markers
+	useEffect(() => {
+		markerLayerRef.current?.clearLayers()
+		if (markerLayerRef.current === undefined) return
+		for (const location of locations) {
+			L.marker([location.lat, location.lng], {
+				icon: marker,
+			}).addTo(markerLayerRef.current)
+		}
+	}, [locations])
 
 	return (
 		<>
-			<BaseMap>
-				{(map) => {
-					return null
-				}}
-			</BaseMap>
+			<div ref={mapDiv} style={{ width: '100%', height: '100%' }} />
 			<Button type="button" onClick={() => setLocations([])}>
 				reset
 			</Button>
