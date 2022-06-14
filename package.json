@@ -45,8 +45,8 @@
     "leaflet": "1.8.0",
     "nmea-simple": "3.2.0",
     "normalize.css": "8.0.1",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "snowpack": "3.8.8",
     "source-map-loader": "4.0.0",
     "styled-components": "5.3.5"
