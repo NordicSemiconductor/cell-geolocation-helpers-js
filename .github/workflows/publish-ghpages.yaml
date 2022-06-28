@@ -36,7 +36,7 @@ jobs:
         run: |
           echo "machine github.com login accesskey password ${GITHUB_TOKEN}" > ~/.netrc
           git config --global user.email "actions@example.com"
-          git config --global user.name "GitHub Actions"
+          git config --global user.name "github-actions[bot]"
           cd build
           touch .nojekyll
           git init
