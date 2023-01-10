@@ -41,7 +41,7 @@
     "@types/styled-components": "5.1.26",
     "jest": "29.3.1",
     "leaflet": "1.9.3",
-    "nmea-simple": "3.2.0",
+    "nmea-simple": "3.3.0",
     "normalize.css": "8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
