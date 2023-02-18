@@ -25,7 +25,7 @@
   "author": "Nordic Semiconductor ASA | nordicsemi.no",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.179",
+    "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.180",
     "@prefresh/snowpack": "3.1.5",
     "@snowpack/plugin-babel": "2.1.7",
     "@snowpack/plugin-react-refresh": "2.5.0",
