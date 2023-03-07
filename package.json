@@ -39,7 +39,7 @@
     "@types/react-dom": "18.0.11",
     "@types/snowpack-env": "2.3.4",
     "@types/styled-components": "5.1.26",
-    "jest": "29.4.3",
+    "jest": "29.5.0",
     "leaflet": "1.9.3",
     "nmea-simple": "3.3.0",
     "normalize.css": "8.0.1",
