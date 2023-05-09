@@ -26,7 +26,7 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "12.0.31",
-    "@prefresh/snowpack": "3.1.5",
+    "@prefresh/snowpack": "3.2.0",
     "@snowpack/plugin-babel": "2.1.7",
     "@snowpack/plugin-react-refresh": "2.5.0",
     "@snowpack/plugin-sass": "1.4.0",
