@@ -1,0 +1,12 @@
+@import "./_snowpack/pkg/normalize.css/normalize.css";
+@import "./_snowpack/pkg/leaflet/dist/leaflet.css";
+html,
+body {
+  height: 100%;
+}
+
+#map,
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}

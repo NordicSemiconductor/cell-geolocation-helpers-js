@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@turf/distance": "./@turf/distance.js",
+    "leaflet": "./leaflet.js",
+    "leaflet/dist/leaflet.css": "./leaflet/dist/leaflet.css",
+    "normalize.css/normalize.css": "./normalize.css/normalize.css",
+    "react": "./react.js",
+    "react-dom/client": "./react-dom/client.js",
+    "styled-components": "./styled-components.js"
+  }
+}
